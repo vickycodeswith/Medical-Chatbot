@@ -8,32 +8,6 @@ The project combines Natural Language Processing (NLP), symptom recognition, a K
 > ⚠️ **Medical Disclaimer:** Meddy is an educational AI/ML project. It is not a doctor and must not be used as a replacement for professional medical diagnosis or treatment.
 
 ---
-"""## 🌐 Live Demo
-
-🚀 **Try Meddy Online:**
-
-[**Open Meddy — AI Medical Chatbot**](https://medical-chatbot-ydor.onrender.com/)
-
-"""
-
-if "## 🌐 Live Demo" not in text:
-    marker = "---\n\n## 🤖 Machine Learning"
-    if marker in text:
-        text = text.replace(
-            marker,
-            "---\n\n" + section + "## 🤖 Machine Learning",
-            1
-        )
-    else:
-        text = section + text
-else:
-    start = text.index("## 🌐 Live Demo")
-    next_section = text.find("\n## ", start + 5)
-
-    if next_section == -1:
-        text = text[:start] + section
-    else:
-        text = text[:start] + section + text[next_section + 1:]
 ## ✨ Features
 
 - 💬 Interactive medical chatbot interface
