@@ -1,0 +1,646 @@
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: #eef2f7;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #1f2937;
+}
+
+.app {
+  position: relative;
+  height: calc(100% - 40px);
+  max-width: 1050px;
+  margin: 20px auto;
+  padding: 0;
+}
+
+.app-one {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
+}
+
+/* =========================
+   HEADER
+========================= */
+
+.heading {
+  height: 72px;
+  margin: 0;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  z-index: 1000;
+}
+
+.heading-avatar {
+  padding: 0;
+  width: 52px;
+  flex: 0 0 52px;
+}
+
+.heading-avatar-icon img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.85);
+  background: #ffffff;
+}
+
+.heading-title {
+  margin: 0 0 0 12px;
+  color: #ffffff;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.heading-title::after {
+  content: "● Online";
+  display: block;
+  margin-top: 3px;
+  color: #d1fae5;
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.heading-dot {
+  margin-left: auto;
+  padding: 0;
+}
+
+.heading-dot i {
+  color: rgba(255, 255, 255, 0.9);
+  padding: 5px;
+}
+
+/* =========================
+   CHAT AREA
+========================= */
+
+.conversation {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0 !important;
+  padding: 0 0 78px 0 !important;
+  background: #f8fafc;
+  overflow: hidden;
+}
+
+.message {
+  height: calc(100% - 132px);
+  margin: 0 !important;
+  padding: 22px 18px 30px !important;
+  overflow-y: auto;
+  border: none;
+  background:
+    linear-gradient(rgba(248, 250, 252, 0.92), rgba(248, 250, 252, 0.92)),
+    url("../assets/img/background.svg") center / 360px 180px no-repeat;
+  scroll-behavior: smooth;
+}
+
+.message-previous {
+  display: none;
+}
+
+.message-body {
+  width: 100%;
+  height: auto;
+  margin: 0 0 12px !important;
+  padding: 0 !important;
+  clear: both;
+}
+
+.message-main-receiver {
+  max-width: 72%;
+  padding: 0 !important;
+}
+
+.message-main-sender {
+  max-width: 72%;
+  margin-left: 28% !important;
+  padding: 0 !important;
+}
+
+/* =========================
+   MESSAGE BUBBLES
+========================= */
+
+.receiver,
+.sender {
+  position: relative;
+  display: inline-block;
+  max-width: 100%;
+  padding: 11px 15px !important;
+  border-radius: 16px;
+  font-size: 14px;
+  line-height: 1.55;
+  word-wrap: break-word;
+  text-shadow: none;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.receiver {
+  color: #1e293b;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-bottom-left-radius: 4px;
+}
+
+.sender {
+  float: right;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  border: none;
+  border-bottom-right-radius: 4px;
+}
+
+.message-text {
+  margin: 0 !important;
+  padding: 0 !important;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.message-text b {
+  font-weight: 600;
+}
+
+.message-text i {
+  display: block;
+  margin-top: 4px;
+  color: #475569;
+  font-style: normal;
+  line-height: 1.65;
+}
+
+/* =========================
+   INPUT AREA
+========================= */
+
+.reply {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 78px;
+  margin: 0 !important;
+  padding: 14px 16px !important;
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border-top: 1px solid #e2e8f0;
+  z-index: 1000;
+}
+
+.reply-emojis {
+  width: 48px;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reply-emojis i {
+  color: #64748b;
+  padding: 9px;
+  font-size: 18px;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.reply-emojis i:hover {
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+.reply-main {
+  position: relative;
+  flex: 1;
+  width: auto;
+  padding: 0 10px !important;
+}
+
+.reply-main input,
+#message-text {
+  width: 100%;
+  height: 48px;
+  padding: 0 17px !important;
+  border: 1px solid #dbe3ef;
+  border-radius: 14px;
+  outline: none;
+  background: #f8fafc;
+  color: #1e293b;
+  font-size: 14px;
+  box-shadow: none;
+  transition: all 0.2s ease;
+}
+
+#message-text::placeholder {
+  color: #94a3b8;
+}
+
+#message-text:focus {
+  border-color: #93c5fd;
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.08);
+}
+
+.reply-send {
+  width: 48px;
+  padding: 0 !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reply-send i {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 !important;
+  border-radius: 13px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  font-size: 17px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.reply-send i:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(37, 99, 235, 0.28);
+}
+
+/* =========================
+   SYMPTOM AUTOCOMPLETE
+========================= */
+
+.autocomplete {
+  position: relative;
+}
+
+.symptoms-list-container {
+  position: absolute;
+  display: none;
+  z-index: 2000;
+  left: 10px;
+  right: 10px;
+  bottom: 54px;
+  top: auto;
+  width: auto;
+  height: auto;
+  max-height: 190px;
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 7px;
+  background: #ffffff;
+  border: 1px solid #dbe3ef;
+  border-radius: 13px;
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.14);
+}
+
+#symptoms-list {
+  margin: 0;
+  padding: 0;
+}
+
+#symptoms-list li {
+  list-style: none;
+  padding: 10px 12px;
+  margin: 2px 0;
+  border-radius: 9px;
+  color: #334155;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+#symptoms-list li:hover {
+  background: #eff6ff;
+  color: #1d4ed8;
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+.message::-webkit-scrollbar,
+.symptoms-list-container::-webkit-scrollbar {
+  width: 7px;
+}
+
+.message::-webkit-scrollbar-track,
+.symptoms-list-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.message::-webkit-scrollbar-thumb,
+.symptoms-list-container::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 20px;
+}
+
+.message::-webkit-scrollbar-thumb:hover,
+.symptoms-list-container::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media screen and (max-width: 700px) {
+  body {
+    background: #f8fafc;
+  }
+
+  .app {
+    top: 0;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+  }
+
+  .app-one {
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  .heading {
+    height: 68px;
+    padding: 10px 14px;
+  }
+
+  .heading-avatar {
+    width: 46px;
+    flex: 0 0 46px;
+  }
+
+  .heading-avatar-icon img {
+    width: 43px;
+    height: 43px;
+  }
+
+  .heading-title {
+    font-size: 18px;
+    margin-left: 10px;
+  }
+
+  .heading-title::after {
+    font-size: 10px;
+  }
+
+  .heading-dot {
+    display: none;
+  }
+
+  .message {
+    height: calc(100% - 138px);
+    padding: 18px 12px 25px !important;
+  }
+
+  .message-main-receiver,
+  .message-main-sender {
+    max-width: 86%;
+  }
+
+  .receiver,
+  .sender {
+    padding: 10px 13px !important;
+    font-size: 13px;
+  }
+
+  .message-text {
+    font-size: 13px;
+  }
+
+  .reply {
+    height: 70px;
+    padding: 10px 8px !important;
+  }
+
+  .reply-emojis {
+    width: 42px;
+  }
+
+  .reply-main {
+    padding: 0 6px !important;
+  }
+
+  #message-text {
+    height: 46px;
+    font-size: 14px;
+  }
+
+  .reply-send {
+    width: 44px;
+  }
+
+  .reply-send i {
+    width: 42px;
+    height: 42px;
+  }
+
+  .symptoms-list-container {
+    left: 6px;
+    right: 6px;
+    bottom: 52px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .heading-title {
+    font-size: 16px;
+  }
+
+  .message-main-receiver,
+  .message-main-sender {
+    max-width: 91%;
+  }
+
+  .receiver,
+  .sender {
+    font-size: 12px;
+  }
+}
+
+/* ============================================================
+   PHASE 2.3 - PROFESSIONAL DIAGNOSIS CARD
+   ============================================================ */
+
+.diagnosis-card {
+  width: 100%;
+  max-width: 720px;
+  margin: 4px 0;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 18px;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.10);
+}
+
+.diagnosis-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 22px;
+  background: linear-gradient(135deg, #4f46e5, #6366f1);
+  color: #ffffff;
+}
+
+.diagnosis-icon {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.18);
+  font-size: 23px;
+}
+
+.diagnosis-label {
+  margin-bottom: 3px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  opacity: 0.85;
+}
+
+.diagnosis-title {
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.diagnosis-section {
+  padding: 18px 22px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 9px;
+  color: #1f2937;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.section-title i {
+  width: 20px;
+  text-align: center;
+  color: #4f46e5;
+}
+
+.section-content {
+  color: #4b5563;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.symptom-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.symptom-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 11px;
+  border-radius: 20px;
+  background: #eef2ff;
+  color: #4338ca;
+  border: 1px solid #e0e7ff;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.diagnosis-warning {
+  display: flex;
+  gap: 13px;
+  margin: 18px 22px 22px;
+  padding: 15px;
+  border-radius: 12px;
+  background: #fff7ed;
+  border: 1px solid #fed7aa;
+}
+
+.warning-icon {
+  width: 28px;
+  min-width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ea580c;
+  font-size: 17px;
+}
+
+.diagnosis-warning strong {
+  display: block;
+  margin-bottom: 4px;
+  color: #9a3412;
+  font-size: 14px;
+}
+
+.diagnosis-warning p {
+  margin: 0;
+  color: #7c2d12;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+@media (max-width: 576px) {
+
+  .diagnosis-card {
+    border-radius: 14px;
+  }
+
+  .diagnosis-header {
+    padding: 17px;
+  }
+
+  .diagnosis-title {
+    font-size: 19px;
+  }
+
+  .diagnosis-icon {
+    width: 45px;
+    height: 45px;
+    min-width: 45px;
+    font-size: 19px;
+  }
+
+  .diagnosis-section {
+    padding: 15px 17px;
+  }
+
+  .diagnosis-warning {
+    margin: 15px 17px 17px;
+  }
+}

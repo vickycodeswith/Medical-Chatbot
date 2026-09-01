@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+
+    <title>Medical Chatbot | Meddy</title>
+
+    <!-- Bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+
+    <!-- Custom CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+
+    <!-- jQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <!-- Symptoms data from Flask -->
+    <script>
+      let symptoms = [];
+
+      function getSymptomsData(data) {
+        symptoms = data;
+      }
+
+      getSymptomsData({{ data | safe }});
+    </script>
+  </head>
+
+  <body>
+    <div class="container app">
+      <div class="row app-one">
+
+        <div class="conversation">
+
+          <!-- ================= HEADER ================= -->
+          <div class="row heading">
+
+            <div class="heading-avatar">
+              <div class="heading-avatar-icon">
+                <img
+                  src="https://bootdey.com/img/Content/avatar/avatar6.png"
+                  alt="Meddy"
+                />
+              </div>
+            </div>
+
+            <div class="heading-info">
+              <h3 class="heading-title">Medical Chatbot</h3>
+            </div>
+
+            <div class="heading-dot">
+              <i
+                class="fa fa-ellipsis-v fa-lg"
+                aria-hidden="true"
+              ></i>
+            </div>
+
+          </div>
+
+          <!-- ================= CHAT ================= -->
+          <div
+            class="row message"
+            id="conversation"
+          >
+
+            <!-- Initial bot message -->
+            <div class="row message-previous">
+              <div class="col-sm-12 previous"></div>
+            </div>
+
+            <div class="row message-body">
+
+              <div class="col-sm-12 message-main-receiver">
+
+                <div class="receiver">
+
+                  <div class="message-text">
+
+                    Welcome! I'm Medical Chatbot, but you can call me Meddy.
+                    What symptoms are you currently experiencing?
+
+                    <br /><br />
+
+                    When you've entered all of your symptoms, please write
+                    <b>Done</b>.
+
+                    <br /><br />
+
+                    Make sure you enter as many symptoms as possible so the
+                    prediction can be as accurate as possible.
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <!-- ================= INPUT ================= -->
+          <div class="row reply">
+
+            <!-- Start over -->
+            <div
+              id="start-over"
+              class="reply-emojis text-center"
+              title="Start a new conversation"
+            >
+              <i
+                class="fas fa-redo"
+                aria-hidden="true"
+              ></i>
+            </div>
+
+            <!-- Input -->
+            <div class="reply-main autocomplete">
+
+              <!-- Suggestions -->
+              <div class="symptoms-list-container">
+
+                <ul id="symptoms-list"></ul>
+
+              </div>
+
+              <input
+                id="message-text"
+                class="form-control"
+                type="text"
+                autocomplete="off"
+                placeholder="Describe your symptoms..."
+                aria-label="Describe your symptoms"
+              />
+
+            </div>
+
+            <!-- Send -->
+            <div
+              id="send"
+              class="reply-send text-center"
+              title="Send message"
+            >
+              <i
+                class="fas fa-paper-plane"
+                aria-hidden="true"
+              ></i>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Main JavaScript -->
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+  </body>
+</html>
