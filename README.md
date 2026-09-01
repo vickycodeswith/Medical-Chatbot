@@ -8,7 +8,32 @@ The project combines Natural Language Processing (NLP), symptom recognition, a K
 > ⚠️ **Medical Disclaimer:** Meddy is an educational AI/ML project. It is not a doctor and must not be used as a replacement for professional medical diagnosis or treatment.
 
 ---
+"""## 🌐 Live Demo
 
+🚀 **Try Meddy Online:**
+
+[**Open Meddy — AI Medical Chatbot**](https://medical-chatbot-ydor.onrender.com/)
+
+"""
+
+if "## 🌐 Live Demo" not in text:
+    marker = "---\n\n## 🤖 Machine Learning"
+    if marker in text:
+        text = text.replace(
+            marker,
+            "---\n\n" + section + "## 🤖 Machine Learning",
+            1
+        )
+    else:
+        text = section + text
+else:
+    start = text.index("## 🌐 Live Demo")
+    next_section = text.find("\n## ", start + 5)
+
+    if next_section == -1:
+        text = text[:start] + section
+    else:
+        text = text[:start] + section + text[next_section + 1:]
 ## ✨ Features
 
 - 💬 Interactive medical chatbot interface
@@ -577,5 +602,17 @@ Unique Diagnosis Examples:
 ```
 
 ---
+## 📄 Screen Shot
+<img width="1119" height="783" alt="image" src="https://github.com/user-attachments/assets/573e45cd-d02a-44de-8eb4-1e28df48bfd4" />
+<img width="1396" height="627" alt="Screenshot 2026-09-01 at 12 49 53 PM" src="https://github.com/user-attachments/assets/4647141e-954c-47f4-a9d1-cd723a7392a0" />
+<img width="1396" height="627" alt="Screenshot 2026-09-01 at 12 50 00 PM" src="https://github.com/user-attachments/assets/848d8ea4-1356-4f09-97bd-8cd0c9045741" />
+<img width="1396" height="627" alt="Screenshot 2026-09-01 at 12 50 09 PM" src="https://github.com/user-attachments/assets/93c97b6d-f609-4db7-9345-e997d530fe74" />
+<img width="1396" height="627" alt="Screenshot 2026-09-01 at 12 50 17 PM" src="https://github.com/user-attachments/assets/c17774ac-047c-4a44-9b72-d41d23164161" />
+<img width="1396" height="639" alt="Screenshot 2026-09-01 at 12 50 38 PM" src="https://github.com/user-attachments/assets/58b12339-f455-437c-811a-9f64a6ff0ad9" />
+
+
 
 ## 📄 License
+## BUILD BY - NITESH YADAV 
+@VICKYCODESWITH
+
