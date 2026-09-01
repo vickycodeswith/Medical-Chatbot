@@ -8,6 +8,8 @@ The project combines Natural Language Processing (NLP), symptom recognition, a K
 > ⚠️ **Medical Disclaimer:** Meddy is an educational AI/ML project. It is not a doctor and must not be used as a replacement for professional medical diagnosis or treatment.
 
 ---
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Render-46E3B7?style=for-the-badge&logo=render&logoColor=white)](https://medical-chatbot-ydor.onrender.com/)
+
 ## ✨ Features
 
 - 💬 Interactive medical chatbot interface
